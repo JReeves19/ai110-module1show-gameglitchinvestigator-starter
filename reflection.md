@@ -8,15 +8,28 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 - List at least two concrete bugs you noticed at the start  
   (for example: "the hints were backwards").
 
+- The first time I ran the game, it looked very simple. I was expecting to submit a guess number, the game let me know if I won or lose, and then instruct me to submit another guess if I wanted to keep playing.
+- The first bug I noticed was that the "New Game" button wasn't working. I submitted my first guess and the game told me that I won, then I clicked new game, and nothing worked. The second bug I noticed was the inconsistency between the range of guess numbers.
 **Bug Reproduction Log**
 
 Document at least 3 bugs you found. Add rows as needed.
 
-| Input | Expected Behavior | Actual Behavior | Console Output / Error |
-|-------|-------------------|-----------------|------------------------|
-| | | | |
-| | | | |
-| | | | |
+| Input     | Expected Behavior | Actual Behavior | Console Output / Error |
+|-------    |-------------------|-----------------|------------------------|
+| Guess of  | " Go Higher" hint | No hint         | None                   |
+| 25 on the |                   |                 |                        |
+| Easy level|                   |                 |                        |
+|--------------------------------------------------------------------------|
+| Guess of  | "Go Higher" hint  | No hint         | None                   |
+| 125 on the|                   |                 |                        |
+| Normal    |                   |                 |                        |
+| level     |                   |                 |                        |
+|--------------------------------------------------------------------------|
+|Guess of 12| "Go Lower" hint   | "Go Higher" hint| None                   |
+|if secret  |                   |                 |                        |
+|is 10      |                   |                 |                        |
+|--------------------------------------------------------------------------|
+
 
 ---
 
@@ -26,6 +39,7 @@ Document at least 3 bugs you found. Add rows as needed.
 - Give one example of an AI suggestion that was correct (including what the AI suggested and how you verified the result).
 - Give one example of an AI suggestion that was incorrect or misleading (including what the AI suggested and how you verified the result).
 
+I used Cluade Code to refactor the code by separating the game logic from the UI code. It helped me move the logic functions from app.py to logic_utils.py, and updated app.py to import them. Its suggested refactored code worked well. I verified them by manually inspecting the code and testing the behavior of the game. The functions were very similar to the ones originally in app.py, and the game behavior did not change after refactoring. For example, when I entered 45 as a guess number, the game would still hint me to "Go Lower" because the secret number was 13. This shows that the check_guess function still works perfectly.   
 ---
 
 ## 3. Debugging and testing your fixes
@@ -35,6 +49,7 @@ Document at least 3 bugs you found. Add rows as needed.
   and what it showed you about your code.
 - Did AI help you design or understand any tests? How?
 
+Claude Code helped me to generate a pytest file to run tests on the guessing logic. I ran a test on the "Too High" hint. A function was defined to check whether a guess number is higher than the secret number. I input 60 as a guess, while the secret is 50 and ran the test, and it passed. 
 ---
 
 ## 4. What did you learn about Streamlit and state?
