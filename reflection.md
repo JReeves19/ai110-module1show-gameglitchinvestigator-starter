@@ -65,10 +65,13 @@ Streamlit is an open-source Python framework that allows you to turn a script in
 
 - What is one habit or strategy from this project that you want to reuse in future labs or projects?
   - This could be a testing habit, a prompting strategy, or a way you used Git.
+
 One strategy from this project that I want to reuse in future labs or projects is the testing strategy of generating a pytest and then manually testing a logic.
 
 - What is one thing you would do differently next time you work with AI on a coding task?
+
 Next time I work with AI on a coding task, I would use better prompting strategies to get the best results.
 
 - In one or two sentences, describe how this project changed the way you think about AI generated code.
+
 During this project, I understood that some AI generated code looks good and works, but it doesn't gaurantee 100% correctness. Just because it works for a certain input or edge case doesn't mean that it works for all inputs or edge cases.
