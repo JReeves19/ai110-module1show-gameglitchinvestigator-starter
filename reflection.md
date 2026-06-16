@@ -8,8 +8,10 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 - List at least two concrete bugs you noticed at the start  
   (for example: "the hints were backwards").
 
-- The first time I ran the game, it looked very simple. I was expecting to submit a guess number, the game let me know if I won or lose, and then instruct me to submit another guess if I wanted to keep playing.
-- The first bug I noticed was that the "New Game" button wasn't working. I submitted my first guess and the game told me that I won, then I clicked new game, and nothing worked. The second bug I noticed was the inconsistency between the range of guess numbers.
+The first time I ran the game, it looked very simple. I was expecting to submit a guess number, the game let me know if I won or lose, and then instruct me to submit another guess if I wanted to keep playing.
+
+The first bug I noticed was that the "New Game" button wasn't working. I submitted my first guess and the game told me that I won, then I clicked new game, and nothing worked. The second bug I noticed was the inconsistency between the range of guess numbers.
+
 **Bug Reproduction Log**
 
 Document at least 3 bugs you found. Add rows as needed.
@@ -56,11 +58,17 @@ Claude Code helped me to generate a pytest file to run tests on the guessing log
 
 - How would you explain Streamlit "reruns" and session state to a friend who has never used Streamlit?
 
+Streamlit is an open-source Python framework that allows you to turn a script into an interactive web application with just a few lines of code. The script reruns from top to bottom on every execution. For example, if you click a button or change a text input on the UI and rerun, the whole file re-executes from line 1, wiping away every input or event happened before the re-execution. Session state solves this. It's a dictionary that survives across reruns. When events or inputs are held in session states they're not wiped out after a rerun. 
 ---
 
 ## 5. Looking ahead: your developer habits
 
 - What is one habit or strategy from this project that you want to reuse in future labs or projects?
   - This could be a testing habit, a prompting strategy, or a way you used Git.
+One strategy from this project that I want to reuse in future labs or projects is the testing strategy of generating a pytest and then manually testing a logic.
+
 - What is one thing you would do differently next time you work with AI on a coding task?
+Next time I work with AI on a coding task, I would use better prompting strategies to get the best results.
+
 - In one or two sentences, describe how this project changed the way you think about AI generated code.
+During this project, I understood that some AI generated code looks good and works, but it doesn't gaurantee 100% correctness. Just because it works for a certain input or edge case doesn't mean that it works for all inputs or edge cases.
