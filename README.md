@@ -25,29 +25,40 @@ It wrote the code, ran away, and now the game is unplayable.
 
 ## 📝 Document Your Experience
 
-- [ ] Describe the game's purpose.
-- [ ] Detail which bugs you found.
-- [ ] Explain what fixes you applied.
+- The game generates a secret number and allow users to guess that number. It return hints like "Go HIGHER" or "Too Low" if the guess is less than the secret number, and "Go LOWER" or "Too High" if the guess if greater than the secret number.
+- When I first tried the game, I found that the hints were misleading. For example, when the secret number was 24 and I entered 16 as a guess, the game returned "Go LOWER".
+- There was a logic break in the if statement initially on lines 43-48 in app.py. The program was returning "Too High" or "Go HIGHER" if the guess was greater than the secret. I swapped the "Go HIGHER" hint to "Go LOWER".  
 
 ## 📸 Demo Walkthrough
 
 Describe your fixed game in numbered steps so a reader can follow along without watching a video:
 
-1. <!-- Describe this step -->
-2. <!-- Describe this step -->
-3. <!-- Describe this step -->
-4. <!-- Describe this step -->
-5. <!-- Add more steps as needed -->
+1. User enters a guess of 56
+2. The game returns "Go HIGHER"
+3. User enters a guess of 89. The game returns "Go LOWER".
+4. The game correctly updates the user score after each guess.
+5. The game ends after user correctly guess the secret number.
 
 **Screenshot** *(optional)*: <!-- Insert a screenshot of your fixed, winning game here -->
 
 ## 🧪 Test Results
 
-```
-# Paste your pytest output here, e.g.:
-# pytest tests/
-# ========================= X passed in 0.XXs =========================
-```
+pytest tests/test_game_logic.py -v
+=============== test session starts =========================================
+platform win32 -- Python 3.13.14, pytest-9.0.3, pluggy-1.6.0 -- C:\Users\jaket\CodePath\Week-2\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\jaket\CodePath\Week-2\ai110-module1show-gameglitchinvestigator-starter
+plugins: anyio-4.13.0
+collected 7 items                                                                                                                                                                                                                              
+
+tests/test_game_logic.py::test_winning_guess PASSED                                                                                                                                                                                      [ 14%]
+tests/test_game_logic.py::test_guess_too_high PASSED                                                                                                                                                                                     [ 28%]
+tests/test_game_logic.py::test_guess_too_low PASSED                                                                                                                                                                                      [ 42%]
+tests/test_game_logic.py::test_hint_says_go_lower_when_guess_too_high PASSED                                                                                                                                                             [ 57%]
+tests/test_game_logic.py::test_hint_says_go_higher_when_guess_too_low PASSED                                                                                                                                                             [ 71%]
+tests/test_game_logic.py::test_hint_correct_with_string_secret_too_high PASSED                                                                                                                                                           [ 85%]
+tests/test_game_logic.py::test_hint_correct_with_string_secret_too_low PASSED                                                                                                                                                            [100%]
+$====================== 7 passed in 0.05s ======================================
 
 ## 🚀 Stretch Features
 
